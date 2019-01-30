@@ -11,7 +11,7 @@ else
   ansible-playbook users.yml -e "${USER_ARGS}" -t update-users
 fi
 
-if sudo openssl crl -inform pem -noout -text -in configs/$LXC_IP/pki/crl/phone.crt | grep CRL
+if sudo openssl crl -inform pem -noout -text -in configs/$LXC_IP/ipsec/.pki/crl/phone.crt | grep CRL
   then
     echo "The CRL check passed"
   else
@@ -19,7 +19,7 @@ if sudo openssl crl -inform pem -noout -text -in configs/$LXC_IP/pki/crl/phone.c
     exit 1
 fi
 
-if sudo openssl x509 -inform pem -noout -text -in configs/$LXC_IP/pki/certs/user1.crt | grep CN=user1
+if sudo openssl x509 -inform pem -noout -text -in configs/$LXC_IP/ipsec/.pki/certs/user1.crt | grep CN=user1
   then
     echo "The new user exists"
   else
