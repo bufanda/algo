@@ -1,4 +1,4 @@
-FROM python:2-alpine
+FROM arm32v6/python:2-alpine
 
 ARG VERSION="git"
 ARG PACKAGES="bash libffi openssh-client openssl rsync tini"
